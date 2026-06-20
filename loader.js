@@ -59,6 +59,7 @@ function collect() {
 
 async function run(container = document.body) {
   const cells = collect();
+  console.log(cells);
   if (cells.length) return render(cells, container);
 }
 
