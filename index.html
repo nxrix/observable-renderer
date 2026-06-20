@@ -8,12 +8,14 @@
 </head>
 <body>
 <script type="module">
-import { compile } from "./compiler.js";
-compile([
+import { render } from "./renderer.js";
+render([
   `viewof a = Inputs.range([0, 100], { value: 10, label: "A" })`,
   `viewof b = Inputs.range([0, 100], { value: 20, label: "B" })`,
   `sum = a + b`,
-  `html\`<h2>Sum = \${sum}</h2>\``
+  `html\`<h2>Sum = \${sum}</h2>\``,
+  `viewof observable`,
+  `import { viewof observable } from "@nxrix/palettes`
 ]);
 </script>
 </body>
