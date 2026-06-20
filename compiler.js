@@ -192,7 +192,7 @@ function preRegister(main, name) {
   return v;
 }
 
-export async function notebook(cells, container = document.body) {
+export async function compile(cells, container = document.body) {
   const runtime = new Runtime(stdlib);
   const main = runtime.module();
 
