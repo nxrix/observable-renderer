@@ -439,7 +439,7 @@ p .plot-d6a7b5 {
   min-height: 1.5rem;
 }
 
-.observablehq:first-child {
+.observablehq:first-of-type {
   margin-top: 0;
 }
 
