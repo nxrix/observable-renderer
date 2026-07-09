@@ -10,6 +10,7 @@
   <script type="module">
     import { render } from "./renderer.js";
     render([
+      { value: "# Hello", type: "md" },
       `viewof a = Inputs.number({ label: "A" , value: 1 })`,
       `viewof b = Inputs.number({ label: "B" , value: 2 })`,
       `sum = a + b`
