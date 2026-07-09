@@ -136,8 +136,23 @@ const buildTagged = (input, cell, tag) => {
   return { inputs, fn: buildFn(call, cell, inputs) };
 };
 
+const rewriteImports = (src) => {
+  return src.replace(
+    /import\(\s*["']([^"']+)["']\s*\)/g,
+    (_, spec) => {
+      if (spec.startsWith("http")) {
+        return `import("${spec}")`;
+      }
+      if (spec.startsWith("@")) {
+        return `import("https://api.observablehq.com/${spec}.js?v=3")`;
+      }
+      return `import("https://cdn.jsdelivr.net/npm/${spec}/+esm")`;
+    }
+  );
+};
+
 const transpile = (value, type) => {
-  const stripped = value.trim();
+  const stripped = rewriteImports(value.trim());
   const tag = isJs(type) ? null : type;
   const cell = parseCell(stripped, tag ? { tag } : undefined);
 
