@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./notebook.css">
-  <title>Notebook</title>
-</head>
-<body>
-  <script type="ojs">
-    viewof a = Inputs.range([0, 100])
-    sum = a + 1
-  </script>
-  <script type="omd">
-    ## Result
-    Sum is **${sum}**.  
-    ${secret}
-  </script>
-  <script type="ojs" pinned>
-    chart = Plot.plot({marks: [Plot.barY([sum])]})
-  </script>
-  <script type="ojs" hidden>
-    secret = sum * 999
-  </script>
-  <script type="module" src="loader.js"></script>
-</body>
-</html>
+---
+layout: notebook
+---
+<script type="omd">
+  # Hello
+</script>
+<script type="ojs">
+  viewof a = Inputs.range([0, 100], { label:"A", step: 1 })
+  viewof b = Inputs.range([0, 100], { label:"B", step: 1 })
+</script>
+<script type="omd">
+  Sum is **${a+b}**.
+</script>
