@@ -223,7 +223,7 @@ const preRegister = (main, name) => {
 
 const normalize = (cell) =>
   typeof cell === "string"
-    ? { value: cell, type: "js", show: true, pinned: false }
+    ? { value: cell, type: "ojs", show: true, pinned: false }
     : { value: cell.value, type: cell.type || "ojs", show: cell.show !== false, pinned: !!cell.pinned };
 
 const isImport = (item) => item.type === "ojs" && /^\s*import\s+/.test(item.value.trim());
