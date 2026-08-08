@@ -15,13 +15,13 @@ There are two scripts `loader.js` and `renderer.js`
 To open an Observable notebook directly in browser add the loader script to the notebook:
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/nxrix/observable-renderer/src/loader.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/nxrix/observable-renderer@1.1.2/src/loader.js"></script>
 ```
 
 ### Renderer
 
 ```js
-import { render, split } from "https://cdn.jsdelivr.net/gh/nxrix/observable-renderer/src/renderer.js";
+import { render, split } from "https://cdn.jsdelivr.net/gh/nxrix/observable-renderer@1.1.2/src/renderer.js";
 
 const cells = [
   {
@@ -65,7 +65,7 @@ Supported cell types:
 The renderer also exposes `split()` for splitting Observable JavaScript source into cells:
 
 ```js
-import { split } from "https://cdn.jsdelivr.net/gh/nxrix/observable-renderer/src/renderer.js";
+import { split } from "https://cdn.jsdelivr.net/gh/nxrix/observable-renderer@1.1.2/src/renderer.js";
 
 const cells = split(`
   x = 100
