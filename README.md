@@ -5,7 +5,9 @@ Uses [Observable Runtime](https://github.com/observablehq/runtime) & [Observable
 
 JS, TS and SQL cell types are not supported yet!
 
+---
 ## Usage
+<br>
 
 ### Loader
 
