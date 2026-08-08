@@ -10,12 +10,24 @@ const types = {
   "text/vnd.graphviz": "dot"
 };
 
+const dedent = (text) => {
+  const lines = text.replace(/^\r?\n/, "").split(/\r?\n/);
+  const nonBlank = lines.filter(line => line.trim());
+  if (!nonBlank.length) return "";
+  const indent = Math.min(
+    ...nonBlank.map(line => line.match(/^[ \t]*/)[0].length)
+  );
+  return lines
+    .map(line => line.trim() ? line.slice(indent) : "")
+    .join("\n");
+}
+
 const parseNotebook = (notebook) => {
   const title = (notebook.querySelector(":scope > title")?.textContent || "Observable Notebook").trim();
   const theme = notebook.getAttribute("theme") || "air";
   const cells = [...notebook.querySelectorAll(":scope > script")]
     .map((i) => ({
-      value: i.textContent.replace(/^\n+|\n+$/g, ""),
+      value: dedent(i.textContent).replace(/^\n+|\n+$/g, ""),
       type: types[i.type],
       show: !i.hasAttribute("hidden"),
       pinned: i.hasAttribute("pinned"),
