@@ -8,12 +8,12 @@
 </head>
 <body>
   <script type="module">
-    import { render } from "./renderer.js";
+    import { render } from "../src/renderer.js";
     render([
       { value: "# Hello", type: "md" },
-      `viewof a = Inputs.number({ label: "A" , value: 1 })`,
-      `viewof b = Inputs.number({ label: "B" , value: 2 })`,
-      `sum = a + b`
+      `viewof a = Inputs.range([0,100],{ label: "A", step: 1, value: 1 })`,
+      `viewof b = Inputs.range([0,100],{ label: "B", step: 1, value: 2 })`,
+      `tex\`sum = \${a+b}\``
     ]);
   </script>
 </body>

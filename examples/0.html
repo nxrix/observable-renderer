@@ -1,14 +1,22 @@
----
-layout: notebook
----
-<script type="omd">
-  # Hello
-</script>
-<script type="ojs">
-  viewof a = Inputs.range([0, 100], { label:"A", step: 1 })
-  viewof b = Inputs.range([0, 100], { label:"B", step: 1 })
-</script>
-<script type="omd">
-  a + b = **${a+b}**  
-  [Source](https://github.com/nxrix/observable-renderer/blob/main/examples/0.html)
-</script>
+<!doctype html>
+<notebook theme="air">
+  <script id="1" type="text/markdown">
+    # Test
+  </script>
+  <script id="6" type="text/html">
+    <h2>test</h2>
+  </script>
+  <script id="12" type="application/vnd.observable.javascript" hidden>
+    x = 100
+  </script>
+  <script id="15" type="application/vnd.observable.javascript" pinned>
+    x+1
+  </script>
+  <script id="7" type="application/x-tex">
+    x^2
+  </script>
+  <script id="14" type="text/vnd.graphviz">
+    graph{a -- b}
+  </script>
+</notebook>
+<script type="module" src="../src/loader.js"></script>
