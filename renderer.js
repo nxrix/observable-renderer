@@ -20,8 +20,6 @@ class Mutable {
 
 const refName = (ref) => ref.type === "Identifier" ? ref.name : ref.id.name;
 
-const isJs = (type) => type === "js" || type === "ojs" || type === "javascript";
-
 const classify = (side) => {
   side = side.trim();
   if (side.startsWith("mutable ")) return { kind: "mutable", base: side.slice(8).trim() };
@@ -153,7 +151,7 @@ const rewriteImports = (src) => {
 
 const transpile = (value, type) => {
   const stripped = rewriteImports(value.trim());
-  const tag = isJs(type) ? null : type;
+  const tag = type === "md" || type === "html" || type === "dot" || type === "tex";
   const cell = parseCell(stripped, tag ? { tag } : undefined);
 
   if (!cell.body || cell.body.type === "ImportDeclaration") return null;
@@ -226,11 +224,10 @@ const preRegister = (main, name) => {
 const normalize = (cell) =>
   typeof cell === "string"
     ? { value: cell, type: "js", show: true, pinned: false }
-    : { value: cell.value, type: cell.type || "js", show: cell.show !== false, pinned: !!cell.pinned };
+    : { value: cell.value, type: cell.type || "ojs", show: cell.show !== false, pinned: !!cell.pinned };
 
-const isImport = (item) => isJs(item.type) && /^\s*import\s+/.test(item.value.trim());
-
-const language = (type) => isJs(type) ? "js" : type;
+const isImport = (item) => item.type === "ojs" && /^\s*import\s+/.test(item.value.trim());
+const language = (type) => type === "ojs" ? "js" : type;
 
 const render = async (cells, container = document.body) => {
   const runtime = new Runtime(stdlib);
