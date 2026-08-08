@@ -3,6 +3,8 @@
 An unofficial lightweight, client-side library to render Observable Notebooks.  
 Uses [Observable Runtime](https://github.com/observablehq/runtime) & [Observable Parser](https://github.com/observablehq/parser)
 
+JS, TS and SQL cell types are not supported yet!
+
 ## Usage
 
 ### Loader
