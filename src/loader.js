@@ -27,7 +27,9 @@ const parseNotebook = (notebook) => {
   const theme = notebook.getAttribute("theme") || "air";
   const cells = [...notebook.querySelectorAll(":scope > script")]
     .map((i) => ({
-      value: dedent(i.textContent).replace(/^\n+|\n+$/g, ""),
+      value: dedent(i.textContent)
+        .replace(/<(\\*)\/script\b/gi, (_, slashes) => `<${slashes.slice(0, -1)}/script`)
+        .replace(/^\n+|\n+$/g, ""),
       type: types[i.type],
       show: !i.hasAttribute("hidden"),
       pinned: i.hasAttribute("pinned"),
