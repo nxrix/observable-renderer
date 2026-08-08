@@ -151,7 +151,7 @@ const rewriteImports = (src) => {
 
 const transpile = (value, type) => {
   const stripped = rewriteImports(value.trim());
-  const tag = type === "md" || type === "html" || type === "dot" || type === "tex";
+  const tag = (type === "md" || type === "html" || type === "dot" || type === "tex") ? type : null;
   const cell = parseCell(stripped, tag ? { tag } : undefined);
 
   if (!cell.body || cell.body.type === "ImportDeclaration") return null;
