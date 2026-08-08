@@ -70,7 +70,7 @@ const boot = async () => {
 
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "https://nxrix.github.io/observable-renderer/assets/styles/notebook.css";
+  link.href = "https://nxrix.github.io/assets/styles/notebook.css";
   document.head.appendChild(link);
 
   const shell = document.createElement("div");
