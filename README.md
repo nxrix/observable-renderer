@@ -7,15 +7,15 @@ JS, TS and SQL cell types are not supported yet!
 
 ---
 ## Usage
-<br>
+
+There are two scripts `loader.js` and `renderer.js`
 
 ### Loader
 
-To open an Observable notebook directly add the loader script to the notebook:
+To open an Observable notebook directly in browser add the loader script to the notebook:
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/nxrix/observable-renderer/src/loader.js"
-></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/nxrix/observable-renderer/src/loader.js"></script>
 ```
 
 ### Renderer
